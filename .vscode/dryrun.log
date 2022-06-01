@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/geovani/semb1-workspace/lab-02'
+make: Leaving directory '/home/geovani/semb1-workspace/lab-02'
+ 
+make: *** No targets.  Stop.
+
