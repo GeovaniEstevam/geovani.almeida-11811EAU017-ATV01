@@ -1,7 +1,12 @@
-#include <stdlib.h>
+CC = arm-none-eabi-gcc
+CFLAGS = -c -mcpu=cortex-m4 -mthumb -Wall -O0
 
-#define SRAM_START  0x20000000U/* Inicio da SRAM CORTEX-M */
-#define SRAM_SIZE   (128U * 1024U)/* Tam. SRAM STM32F411 128K */
-#define SRAM_END    ((SRAM_START) + (SRAM_SIZE))/* Final da SRAM STM32F411 */
-#define STACK_START SRAM_END/* Inicio da Stack */
+all: startup.o main.o
 
+main.o: main.c
+	$(CC) $(CFLAGS) -o $@ $^
+
+startup.o: startup.c
+	$(CC) $(CFLAGS) -o $@ $^
+clean:
+	rm -f *.o
