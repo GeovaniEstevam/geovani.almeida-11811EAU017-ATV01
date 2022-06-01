@@ -18,12 +18,12 @@ void debugmon_handler   (void) __attribute__((weak, alias("default_handler")));
 void pendsv_handler     (void) __attribute__((weak, alias("default_handler")));
 void systick_handler    (void) __attribute__((weak, alias("default_handler")));
 
-extern uint32_t _sdata;   /* Inicio da secao .data */
-extern uint32_t _edata;   /* Fim da secao .data */
-extern uint32_t _la_data; /* Endereco de carga na RAM da secao .data */
+extern uint32_t _sdata;                             /* Inicio da secao .data */
+extern uint32_t _edata;                             /* Fim da secao .data */
+extern uint32_t _la_data;                           /* Endereco de carga na RAM da secao .data */
 
-extern uint32_t _sbss; /* Inicio da secao .bss */
-extern uint32_t _ebss; /* Fim da secao .bss */
+extern uint32_t _sbss;                              /* Inicio da secao .bss */
+extern uint32_t _ebss;                              /* Fim da secao .bss */
 
 uint32_t vectors[] __attribute__((section(".isr_vectors"))) =
     {
@@ -60,7 +60,6 @@ void reset_handler()
     pDst = (uint8_t *)&_sbss;
     for (i = 0; i < size; i++)
     {
-        21
             *pDst++ = 0;
     }
     /* Chama a funcao main() */
